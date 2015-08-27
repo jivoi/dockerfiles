@@ -2,13 +2,7 @@
 #
 #
 #docker build -t=tor .
-#
-#docker run -d \
-#    -v /etc/localtime:/etc/localtime \ # so time is synced
-#    --restart always \ # why not?
-#    -p 9050:9050 \ # expose/publish the port
-#    --name tor-relay \
-#    tor-relay -f /etc/tor/torrc.middle
+#docker run -d -v /etc/localtime:/etc/localtime --restart always -p 9050:9050 --name tor tor -f /etc/tor/torrc.middle
 
 FROM alpine:latest
 MAINTAINER EK <ekoz@protonmail.com>

@@ -25,6 +25,7 @@ SocksPort 9050
 ## can access your SocksPort may be able to learn about the connections
 ## you make.
 SocksPolicy accept 192.168.0.0/16
+SocksPolicy accept 172.17.0.0/16
 SocksPolicy accept 127.0.0.0/8
 #SocksPolicy reject *
 
