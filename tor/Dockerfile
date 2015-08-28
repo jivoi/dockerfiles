@@ -1,9 +1,6 @@
 # run a tor in a container
 #
 #
-#docker build -t=tor .
-#docker run -d -v /etc/localtime:/etc/localtime --restart always -p 9050:9050 --name tor tor -f /etc/tor/torrc.middle
-
 FROM alpine:latest
 MAINTAINER EK <ekoz@protonmail.com>
 
@@ -14,11 +11,11 @@ RUN apk update && apk add \
 	&& rm -rf /var/cache/apk/*
 
 # default port to used for incoming Tor connections
-# can be changed by changing 'ORPort' in torrc
+# can be changed in torrc
 EXPOSE 9050
 
 # copy in our torrc files
-COPY torrc.middle /etc/tor/torrc.middle
+COPY torrc.socks5 /etc/tor/torrc.socks5
 
 # make sure files are owned by tor user
 RUN chown -R tor /etc/tor
